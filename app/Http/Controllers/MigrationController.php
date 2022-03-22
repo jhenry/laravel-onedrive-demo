@@ -47,6 +47,7 @@ class MigrationController extends Controller
         //$response = $graph->createRequest("PUT", "/me/drive/root/children/" . $fileName . "/content")->upload($file);
 
         $viewData['result'] = $result;
+        $viewData['webUrl'] = $result->getWebUrl();
 
         return view('migration', $viewData);
     }

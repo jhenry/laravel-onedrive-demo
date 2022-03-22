@@ -9,7 +9,7 @@ use Microsoft\Graph\Http\GraphResponse;
 use Microsoft\Graph\Model\UploadSession;
 use App\TokenStore\TokenCache;
 
-class OneDriveService
+class OneDriveService extends DriveItem
 {
     protected $graph;
     protected $rootFolder;
@@ -185,6 +185,22 @@ class OneDriveService
         // Upload not complete yet, return false.
         return false;
     }
+
+    /**
+    * Gets the webUrl
+    * A URL that opens the item in the browser on the OneDrive website.
+    *
+    * @return string|null The webUrl
+    */
+    public function getWebUrl()
+    {
+        if (array_key_exists("webUrl", $this->_propDict)) {
+            return $this->_propDict["webUrl"];
+        } else {
+            return null;
+        }
+    }
+
     private function getGraph(): Graph
     {
         // Get the access token from the cache
