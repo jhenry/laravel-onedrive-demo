@@ -5,7 +5,7 @@
 @if(isset($result))
     @if($result)
         <div class="alert alert-success" role="alert">
-        <p>Success!</p>
+        <p>Success! File has been uploaded to <a href="{{$webUrl}}">{{$webUrl}}</a> </p>
         </div>
     @endif
 @endif
